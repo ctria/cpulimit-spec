@@ -6,7 +6,7 @@ Summary:	CPU Usage Limiter for Linux
 Group:		Applications/Text
 License:	GPLv2+
 URL:		http://cpulimit.sourceforge.net/
-Source0:	http://downloads.sourceforge.net/project/cpulimit/cpulimit/cpulimit/cpulimit-1.1.tar.gz
+Source0:	http://downloads.sourceforge.net/project/%{name}/%{name}/%{name}/%{name}-%{version}.tar.gz
 BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 
 %description
@@ -21,19 +21,18 @@ is able to adapt itself to the overall system load, dynamically and quickly.
 
 
 %build
-make %{?_smp_mflags}
+gcc $RPM_OPT_FLAGS -lrt -o cpulimit cpulimit.c
 
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -Dp -m 755 cpulimit $RPM_BUILD_ROOT/usr/bin/cpulimit
+install -Dp -m 755 cpulimit $RPM_BUILD_ROOT/%{_bindir}/cpulimit
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(-,root,root,-)
-/usr/bin/cpulimit
+%{_bindir}/cpulimit
 %doc
 
 %changelog
