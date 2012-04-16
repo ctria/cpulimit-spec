@@ -3,7 +3,7 @@ Version:	1.1
 Release:	1%{?dist}
 Summary:	CPU Usage Limiter for Linux
 
-Group:		Applications/Text
+Group:		Applications/System
 License:	GPLv2+
 URL:		http://cpulimit.sourceforge.net/
 Source0:	http://downloads.sourceforge.net/project/%{name}/%{name}/%{name}/%{name}-%{version}.tar.gz
@@ -33,7 +33,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %{_bindir}/cpulimit
-%doc
 
 %changelog
 * Sat Jan 07 2011 Christos Triantafyllidis <christos.triantafyllidis@gmail.com> 1.1-1
